@@ -1,0 +1,22 @@
+README
+
+The files in this directory can be used to set up a 1-year benchmark run
+directory. Follow these steps:
+
+   1. Create a geosfp_4x5_fullchem_benchmark run directory
+
+   2. Copy the setup_1yr_run script from this directory into your newly
+      created run directory
+
+   3. Open setup_1yr_run and modify BM_VERSION, START_YR, START_MONTH, N_MONTHS
+      as needed
+
+   4. Make sure the latest code updated have been pulled into Code.$GC_VERSION
+      (or change the line in setup_1yr_run under "Copy code directory" to point
+      to your code directory)
+
+   5. Execute "./setup_1yr_run"
+
+
+Melissa Sulprizio
+10 Aug 2017
