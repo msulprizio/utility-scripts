@@ -8,17 +8,25 @@
 # Example:
 # regrid_rst_gcc2gchp.sh GEOSChem.Restart.20190101_0000z 24
 
-fin=$1
-cs_res=$2
+if [[ $# == 2 ]] ; then
+    prefix=$1
+    cs_res=$2
+else
+    echo "Usage: ./regrid_rst_gcc2gchp.sh {FILE-PREFIX} {CS-RESOLUTION}"
+    exit 1
+fi
 
-conda activate gcpy_env
+#mamba activate gcpy_env
 
 python -m gcpy.file_regrid --filein ${prefix}.nc4 \
-       --dim_forma{t_in classic \
+       --dim_format_in classic \
        --fileout ${prefix}.c${cs_res}.nc4 \
        --cs_res_out ${cs_res} \
        --dim_format_out checkpoint
 
-conda deactivate
+# Remove regridding files
+rm -rf conservative_*.nc
+
+#mamba deactivate
 
 exit 0
