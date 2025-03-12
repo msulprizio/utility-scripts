@@ -39,14 +39,14 @@ for file in ${dataDirBaseName}/*; do
         if [[ "${file}" =~ "assets" ]]; then
             continue
         else
-	    if [[ -f .assets.md5 ]]; then
+	    if [[ -f ${dataDirBaseName}/.assets.md5 ]]; then
                 md5sum "${file}" >> "${dataDirBaseName}/.assets.md5"
             else
                 md5sum "${file}" > "${dataDirBaseName}/.assets.md5"
 	    fi
         fi
     fi
-done    
+done
 
 # Navigate back to the data directory amd replace the basename w/ "*./",
 # which is the format that is compatible with bashdatacatalog
@@ -57,7 +57,3 @@ echo "Contents of $dataDir/.assets.md5"
 cat .assets.md5
 
 cd $origDir
-
-
-
-
